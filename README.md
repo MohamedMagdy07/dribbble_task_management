@@ -2,6 +2,8 @@
 
 Check the template at (https://dribbble.com/shots/15460654-Task-Management-Mobile-App-Design)
 
+App is still not completed
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
