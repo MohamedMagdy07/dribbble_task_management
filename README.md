@@ -1,6 +1,6 @@
 # dribbble_task_management
 
-A new Flutter project.
+Check the template at (https://dribbble.com/shots/15460654-Task-Management-Mobile-App-Design)
 
 ## Getting Started
 
