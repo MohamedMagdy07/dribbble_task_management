@@ -1,3 +1,4 @@
+import 'package:dribbble_task_management/shared/components/components.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dribbble_task_management/sources/data.dart';
@@ -36,52 +37,9 @@ class _ReviewScreenState extends State<ReviewScreen> {
             SizedBox(
               height: 20,
             ),
-            Container(
-              height: 150,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.deepOrange[800],
-                borderRadius: BorderRadius.circular(15)
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Text(
-                      '${allTasks[0].title}',
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      '${allTasks[0].person.name}',
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          CircleAvatar(
-                            backgroundImage: AssetImage(
-                              '${allTasks[0].person.photo}'
-                            ),
-                          ),
-                          Text(
-                            'Now',
+            defaultTask(
+              task: allTasks[0],
 
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
             ),
           ],
         ),

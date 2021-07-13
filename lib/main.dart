@@ -7,7 +7,7 @@ void main(){
   runApp(
     MaterialApp(
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.black54,
+        scaffoldBackgroundColor:Colors.blueGrey,
       ),
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
