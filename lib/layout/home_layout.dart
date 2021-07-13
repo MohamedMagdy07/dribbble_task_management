@@ -30,7 +30,7 @@ class _HomeLayoutState extends State<HomeLayout> {
 
   @override
   Widget build(BuildContext context) {
-    return gradientedWidget(
+    return gradientWidget(
       gradientColor1: HexColor('#0d0d0d'),
       gradientColor2: HexColor('#5c2d24'),
       widget: Scaffold(

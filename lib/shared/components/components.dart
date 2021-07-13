@@ -14,7 +14,7 @@ Widget defaultTask ({
     gradient: LinearGradient(
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
-        stops: [0.7,1],
+        stops: [0.8,1],
         colors: [gradientColor1,gradientColor2],
       ),
       borderRadius: BorderRadius.circular(15)
@@ -69,9 +69,7 @@ Widget defaultTask ({
 );
 
 
-
-
-Widget gradientedWidget({
+Widget gradientWidget({
   @required Widget widget,
   @required Color gradientColor1,
   @required Color gradientColor2,

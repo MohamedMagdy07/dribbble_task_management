@@ -1,8 +1,9 @@
 import 'package:dribbble_task_management/shared/components/components.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dribbble_task_management/sources/data.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:dribbble_task_management/modules/calandar/calendar.dart';
+
 
 
 
@@ -39,12 +40,35 @@ class _ReviewScreenState extends State<ReviewScreen> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               defaultTask(
                 task: allTasks[0],
                 gradientColor2: HexColor('#62341b'),
                 gradientColor1: HexColor('#1b1b1b'),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Text(
+                    'Monthly Review',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 25,
+                    ),
+                  ),
+                  Spacer(),
+                  ElevatedButton(
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CalenderScreen()));
+                      },
+                      child: Icon(
+                        Icons.calendar_today,
+                      ),
+                  )
+                ],
               ),
             ],
           ),
