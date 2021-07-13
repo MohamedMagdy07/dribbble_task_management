@@ -59,6 +59,9 @@ class _CalenderScreenState extends State<CalenderScreen> {
                   fontSize: 30,
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Expanded(
                 child: ListView.separated(
                     itemBuilder: (context,index)=>defaultTask(

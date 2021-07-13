@@ -56,17 +56,23 @@ class _ReviewScreenState extends State<ReviewScreen> {
                     'Monthly Review',
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
-                      fontSize: 25,
+                      fontSize: 20,
                     ),
                   ),
                   Spacer(),
-                  ElevatedButton(
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CalenderScreen()));
-                      },
-                      child: Icon(
-                        Icons.calendar_today,
-                      ),
+                  Container(
+                    width: 40,
+                    height: 40,
+                    child: FloatingActionButton(
+                      backgroundColor: HexColor('#dd5201'),
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>CalenderScreen()));
+                        },
+                        child: Icon(
+                          Icons.calendar_today,
+                          color: Colors.white,
+                        ),
+                    ),
                   )
                 ],
               ),

@@ -41,8 +41,14 @@ List<Task> taskEvents = [
     startDate: DateTime(2021,7,13,9),
     endDate: DateTime(2021,7,13,15),
     isDone: false,
-    person: worker[4],
+    person: worker[2],
     title: 'mobile game',
   ),
-
+  Task(
+    startDate: DateTime(2021,7,13,9),
+    endDate: DateTime(2021,7,13,15),
+    isDone: false,
+    person: worker[3],
+    title: 'android course',
+  ),
 ];
