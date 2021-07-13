@@ -14,8 +14,8 @@ class ReviewScreen extends StatefulWidget {
 
 class _ReviewScreenState extends State<ReviewScreen> {
 
-  int tasksDone = allTasks.length -
-      (allTasks.where((element) => element.isDone == true).toList().length);
+  int tasksDone = taskEvents.length -
+      (taskEvents.where((element) => element.isDone == true).toList().length);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                 height: 30,
               ),
               defaultTask(
-                task: allTasks[0],
+                task: taskEvents[0],
                 gradientColor2: HexColor('#62341b'),
                 gradientColor1: HexColor('#1b1b1b'),
               ),

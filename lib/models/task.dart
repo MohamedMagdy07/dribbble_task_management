@@ -4,13 +4,17 @@ import 'package:flutter/material.dart';
 class Task {
   Person person;
   String title;
-  String name;
   bool isDone;
+  DateTime startDate;
+  DateTime endDate;
 
   Task({
     @required this.isDone,
     @required this.person,
     @required this.title,
+    @required this.startDate,
+    @required this.endDate,
+
 });
 
 }

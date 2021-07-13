@@ -1,7 +1,8 @@
 import 'package:dribbble_task_management/shared/components/components.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_neat_and_clean_calendar/flutter_neat_and_clean_calendar.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:table_calendar/table_calendar.dart';
+import 'package:dribbble_task_management/sources/data.dart';
 
 
 
@@ -14,85 +15,9 @@ class CalenderScreen extends StatefulWidget {
 
 class _CalenderScreenState extends State<CalenderScreen> {
 
-  final Map<DateTime, List<NeatCleanCalendarEvent>> _events = {
-    DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day): [
-      NeatCleanCalendarEvent('Event A',
-          startTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day, 10, 0),
-          endTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day, 12, 0),
-          description: 'A special event',
-          color: Colors.blue[700]),
-    ],
-    DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 2):
-    [
-      NeatCleanCalendarEvent('Event B',
-          startTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 10, 0),
-          endTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 12, 0),
-          color: Colors.orange),
-      NeatCleanCalendarEvent('Event C',
-          startTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 14, 30),
-          endTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 17, 0),
-          color: Colors.pink),
-    ],
-    DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 3):
-    [
-      NeatCleanCalendarEvent('Event B',
-          startTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 10, 0),
-          endTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 12, 0),
-          color: Colors.orange),
-      NeatCleanCalendarEvent('Event C',
-          startTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 14, 30),
-          endTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 17, 0),
-          color: Colors.pink),
-      NeatCleanCalendarEvent('Event D',
-          startTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 14, 30),
-          endTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 17, 0),
-          color: Colors.amber),
-      NeatCleanCalendarEvent('Event E',
-          startTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 14, 30),
-          endTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 17, 0),
-          color: Colors.deepOrange),
-      NeatCleanCalendarEvent('Event F',
-          startTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 14, 30),
-          endTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 17, 0),
-          color: Colors.green),
-      NeatCleanCalendarEvent('Event G',
-          startTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 14, 30),
-          endTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 17, 0),
-          color: Colors.indigo),
-      NeatCleanCalendarEvent('Event H',
-          startTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 14, 30),
-          endTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day + 2, 17, 0),
-          color: Colors.brown),
-    ],
-  };
 
-  @override
-  void initState() {
-    super.initState();
-    // Force selection of today on first load, so that the list of today's events gets shown.
-    _handleNewDate(DateTime(
-        DateTime.now().year, DateTime.now().month, DateTime.now().day));
-  }
+  DateTime focusedDay=DateTime.now();
+  static DateTime selectedDay=DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -104,29 +29,55 @@ class _CalenderScreenState extends State<CalenderScreen> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
         ),
-        body: SafeArea(
-          child: Calendar(
-            startOnMonday: true,
-            weekDays: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'],
-            isExpandable: true,
-            events: _events,
-            eventDoneColor: Colors.green,
-            selectedColor: Colors.pink,
-            todayColor: Colors.blue,
-            eventColor: Colors.grey,
-            locale: 'de_DE',
-            todayButtonText: 'Today',
-            isExpanded: true,
-            expandableDateFormat: 'EEEE, dd. MMMM yyyy',
-            dayOfWeekStyle: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.w800, fontSize: 11),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TableCalendar(
+                selectedDayPredicate: (day){
+                  return isSameDay(selectedDay,day);
+                },
+                onDaySelected: (_selectedValue,_focusedDay){
+                  setState(() {
+                    selectedDay=_selectedValue;
+                    focusedDay=_focusedDay;
+                  });
+                },
+                calendarFormat: CalendarFormat.month,
+                firstDay: DateTime.utc(2010, 10, 16),
+                lastDay: DateTime.utc(2030, 3, 14),
+                focusedDay: focusedDay,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Ongoing',
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 30,
+                ),
+              ),
+              Expanded(
+                child: ListView.separated(
+                    itemBuilder: (context,index)=>defaultTask(
+                      task: taskEvents.where((element) => element.startDate.day == selectedDay.day).toList()[index],
+                      gradientColor1: HexColor('#62341b'),
+                      gradientColor2: HexColor('#62341b'),
+                    ),
+                    separatorBuilder: (context,index)=>SizedBox(
+                      width: double.infinity,
+                      height: 10,
+                    ),
+                    itemCount: taskEvents.where((element) => element.startDate.day == selectedDay.day).toList().length,
+                ),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
 
-  void _handleNewDate(date) {
-    print('Date selected: $date');
-  }
 }

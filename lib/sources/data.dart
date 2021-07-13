@@ -29,30 +29,20 @@ List<Person> worker = [
   ),
 ];
 
-List<Task> allTasks = [
+List<Task> taskEvents = [
   Task(
+    startDate: DateTime(2021,7,13,9),
+    endDate: DateTime(2021,7,13,15),
     isDone: false,
     person: worker[0],
     title: 'mobile app',
   ),
   Task(
+    startDate: DateTime(2021,7,13,9),
+    endDate: DateTime(2021,7,13,15),
     isDone: false,
     person: worker[4],
     title: 'mobile game',
   ),
-  Task(
-    isDone: true,
-    person: worker[3],
-    title: 'sleeping',
-  ),
-  Task(
-    isDone: false,
-    person: worker[2],
-    title: 'task 4',
-  ),
-  Task(
-    isDone: true,
-    person: worker[0],
-    title: 'mobile app 2',
-  ),
+
 ];
