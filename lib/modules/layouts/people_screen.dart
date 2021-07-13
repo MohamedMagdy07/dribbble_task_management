@@ -6,7 +6,8 @@ class PeopleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+        backgroundColor: Colors.transparent,
+        body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsetsDirectional.only(
             top: 15,

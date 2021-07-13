@@ -18,10 +18,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return gradientedWidget(
-      gradientColor1: HexColor('#0c0c0c'),
-      gradientColor2: HexColor('#5c2d24'),
-      widget: Scaffold(
+    return Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -52,7 +49,6 @@ class _ReviewScreenState extends State<ReviewScreen> {
             ],
           ),
         ),
-      ),
     );
   }
 }

@@ -81,7 +81,7 @@ Widget gradientedWidget({
     gradient: LinearGradient(
       begin: Alignment.bottomRight,
       end: Alignment.topLeft,
-      stops: [0.85,1],
+      stops: [0.8,1],
       colors:[gradientColor1,gradientColor2],
     ),
   ),
