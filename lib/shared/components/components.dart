@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:dribbble_task_management/models/task.dart';
 
+
 Widget defaultTask ({
   @required Task task,
-  Color gradientColor1=Colors.black38,
-  Color gradientColor2=Colors.orange,
+  @required Color gradientColor1,
+  @required Color gradientColor2,
   double height=140,
 })=>Container(
   height:height ,
@@ -65,4 +66,24 @@ Widget defaultTask ({
       ],
     ),
   ),
+);
+
+
+
+
+Widget gradientedWidget({
+  @required Widget widget,
+  @required Color gradientColor1,
+  @required Color gradientColor2,
+
+})=>Container(
+  decoration: BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.bottomRight,
+      end: Alignment.topLeft,
+      stops: [0.85,1],
+      colors:[gradientColor1,gradientColor2],
+    ),
+  ),
+  child: widget,
 );

@@ -2,6 +2,9 @@ import 'package:dribbble_task_management/shared/components/components.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dribbble_task_management/sources/data.dart';
+import 'package:hexcolor/hexcolor.dart';
+
+
 
 class ReviewScreen extends StatefulWidget {
   @override
@@ -15,33 +18,39 @@ class _ReviewScreenState extends State<ReviewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Hi ${worker[worker.indexWhere((element) => element.id == '1')].name}',
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
+    return gradientedWidget(
+      gradientColor1: HexColor('#0c0c0c'),
+      gradientColor2: HexColor('#5c2d24'),
+      widget: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Hi ${worker[worker.indexWhere((element) => element.id == '1')].name}',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            Text(
-              '$tasksDone Tasks are in process',
-              style: TextStyle(
-                fontSize: 15,
+              Text(
+                '$tasksDone Tasks are in process',
+                style: TextStyle(
+                  fontSize: 15,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            defaultTask(
-              task: allTasks[0],
-
-            ),
-          ],
+              SizedBox(
+                height: 20,
+              ),
+              defaultTask(
+                task: allTasks[0],
+                gradientColor2: HexColor('#62341b'),
+                gradientColor1: HexColor('#1b1b1b'),
+              ),
+            ],
+          ),
         ),
       ),
     );

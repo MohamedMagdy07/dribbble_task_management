@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+
 
 class LoadingScreen extends StatelessWidget {
   @override
@@ -29,7 +31,7 @@ class LoadingScreen extends StatelessWidget {
                     maxLines: 2,
                     style: TextStyle(
                       fontSize: 40,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w900,
                       color: Colors.white,
                     ),
                   ),
@@ -41,7 +43,8 @@ class LoadingScreen extends StatelessWidget {
                     maxLines: 2,
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.orange[700],
+                      fontWeight: FontWeight.bold,
+                      color: HexColor('#b4551f'),
                     ),
                   ),
                   SizedBox(
@@ -60,7 +63,7 @@ class LoadingScreen extends StatelessWidget {
                               width: 60,
                               height: 60,
                               decoration: BoxDecoration(
-                                color: Colors.orange[800],
+                                color: HexColor('#dd5201'),
                                 borderRadius: BorderRadius.circular(50),
                               ),
                             ),
@@ -68,6 +71,7 @@ class LoadingScreen extends StatelessWidget {
                               'Get',
                               style: TextStyle(
                                 fontSize: 17,
+                                fontWeight: FontWeight.w900,
                                 color: Colors.white,
                               ),
                             ),
@@ -77,6 +81,7 @@ class LoadingScreen extends StatelessWidget {
                           'Started',
                           style: TextStyle(
                             fontSize: 17,
+                            fontWeight: FontWeight.w900,
                             color: Colors.white,
                           ),
                         ),
