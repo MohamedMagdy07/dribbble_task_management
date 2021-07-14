@@ -1,6 +1,8 @@
 import 'package:dribbble_task_management/models/person.dart';
 import 'package:flutter/material.dart';
 
+
+
 class Task {
   Person person;
   String title;
@@ -14,7 +16,6 @@ class Task {
     @required this.title,
     @required this.startDate,
     @required this.endDate,
-
 });
 
 }

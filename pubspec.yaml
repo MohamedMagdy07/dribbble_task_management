@@ -34,7 +34,6 @@ dev_dependencies:
     sdk: flutter
 
   hexcolor: ^2.0.4
-
   table_calendar: ^3.0.1
 
 

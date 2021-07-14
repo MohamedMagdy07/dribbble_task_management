@@ -56,7 +56,7 @@ Widget defaultTask ({
               ),
               Spacer(),
               Text(
-                'Now',
+                '${task.startDate.hour} - ${task.endDate.hour}',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),

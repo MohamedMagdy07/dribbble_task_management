@@ -9,7 +9,7 @@ List<Person> worker = [
   ),
   Person(
     id: '2',
-    name: 'Maha Magdy',
+    name: 'Mahmoud Magdy',
     photo: 'assets/Worker.png',
   ),
   Person(
@@ -24,29 +24,29 @@ List<Person> worker = [
   ),
   Person(
     id: '5',
-    name: 'Mona Ebrahim',
+    name: 'Kareem Mahmoud',
     photo: 'assets/Worker.png',
   ),
 ];
 
 List<Task> taskEvents = [
   Task(
-    startDate: DateTime(2021,7,13,9),
-    endDate: DateTime(2021,7,13,15),
+    startDate: DateTime.now(),
+    endDate: DateTime.utc(DateTime.now().year,DateTime.now().month,DateTime.now().day,(DateTime.now().hour+1)),
     isDone: false,
     person: worker[0],
     title: 'mobile app',
   ),
   Task(
-    startDate: DateTime(2021,7,13,9),
-    endDate: DateTime(2021,7,13,15),
-    isDone: false,
+    startDate: DateTime.utc(DateTime.now().year,DateTime.now().month,DateTime.now().day,(DateTime.now().hour+1)),
+    endDate:DateTime.utc(DateTime.now().year,DateTime.now().month,DateTime.now().day,(DateTime.now().hour+2)),
+    isDone: true,
     person: worker[2],
     title: 'mobile game',
   ),
   Task(
-    startDate: DateTime(2021,7,13,9),
-    endDate: DateTime(2021,7,13,15),
+    startDate: DateTime.utc(DateTime.now().year,DateTime.now().month,DateTime.now().day,(DateTime.now().hour+2)),
+    endDate: DateTime.utc(DateTime.now().year,DateTime.now().month,DateTime.now().day,(DateTime.now().hour+3)),
     isDone: false,
     person: worker[3],
     title: 'android course',
