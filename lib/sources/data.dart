@@ -51,4 +51,18 @@ List<Task> taskEvents = [
     person: worker[3],
     title: 'android course',
   ),
+  Task(
+    startDate: DateTime.utc(DateTime.now().year,DateTime.now().month+1,DateTime.now().day,(DateTime.now().hour)),
+    endDate: DateTime.utc(DateTime.now().year,DateTime.now().month+1,DateTime.now().day,(DateTime.now().hour+1)),
+    isDone: false,
+    person: worker[4],
+    title: 'mobile app',
+  ),
+  Task(
+    startDate: DateTime.utc(DateTime.now().year,DateTime.now().month,DateTime.now().day+2,(DateTime.now().hour)),
+    endDate: DateTime.utc(DateTime.now().year,DateTime.now().month,DateTime.now().day,(DateTime.now().hour+1)),
+    isDone: false,
+    person: worker[1],
+    title: 'App design',
+  ),
 ];

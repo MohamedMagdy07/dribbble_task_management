@@ -65,7 +65,7 @@ class _CalenderScreenState extends State<CalenderScreen> {
               Expanded(
                 child: ListView.separated(
                     itemBuilder: (context,index)=>defaultTask(
-                      task: taskEvents.where((element) => (element.startDate.day == selectedDay.day||element.endDate.day==selectedDay.day)&&element.isDone==false).toList()[index],
+                      task: taskEvents.where((element) => element.startDate.day == selectedDay.day && element.isDone==false && element.startDate.month == selectedDay.month).toList()[index],
                       gradientColor1: HexColor('#62341b'),
                       gradientColor2: HexColor('#62341b'),
                     ),
@@ -73,7 +73,7 @@ class _CalenderScreenState extends State<CalenderScreen> {
                       width: double.infinity,
                       height: 10,
                     ),
-                    itemCount: taskEvents.where((element) => (element.startDate.day == selectedDay.day||element.endDate.day==selectedDay.day)&&element.isDone==false).toList().length,
+                    itemCount: taskEvents.where((element) => element.startDate.day == selectedDay.day && element.isDone==false && element.startDate.month == selectedDay.month).toList().length,
                 ),
               ),
             ],
